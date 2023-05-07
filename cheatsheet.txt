@@ -1,0 +1,9 @@
+git fugative | <leader>
+harpoon mark | <leader>a
+harpoon toggle menu | <C-e>
+harpoon 1 | <C-h>
+harpoon 2 | <C-g>
+find_files | <leader>pf
+live_grep | <leader>pg
+git_files | <C-p>
+undo tree | <leader>u

@@ -5,6 +5,15 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
+  use {
+  'sudormrfbin/cheatsheet.nvim',
+
+  requires = {
+    {'nvim-telescope/telescope.nvim'},
+    {'nvim-lua/popup.nvim'},
+    {'nvim-lua/plenary.nvim'},
+  }
+}
   use 'wbthomason/packer.nvim'
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
