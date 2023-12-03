@@ -4,49 +4,80 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	  -- or                            , branch = '0.1.x',
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        -- or                            , branch = '0.1.x',
         requires = {
-            {'nvim-lua/plenary.nvim'},
+            { 'nvim-lua/plenary.nvim' },
             { "nvim-telescope/telescope-live-grep-args.nvim" },
         },
         config = function()
             require("telescope").load_extension("live_grep_args")
         end
-  }
-  use { "catppuccin/nvim", as = "catppuccin", config = function()
-  	vim.cmd("colorscheme catppuccin")
-	end
-	}
-    use (
+    }
+    use { "catppuccin/nvim", as = "catppuccin", config = function()
+        vim.cmd("colorscheme catppuccin")
+    end
+    }
+    use(
         'nvim-treesitter/nvim-treesitter',
-	{run = ':TSUpdate'
-    })
-	use ('theprimeagen/harpoon')
-	use ('mbbill/undotree')
-	use ('tpope/vim-fugitive')
-	use {
-  'VonHeikemen/lsp-zero.nvim',
-  branch = 'v2.x',
-  requires = {
-    -- LSP Support
-    {'neovim/nvim-lspconfig'},             -- Required
-    {                                      -- Optional
-      'williamboman/mason.nvim',
-      run = function()
-        pcall(vim.cmd, 'MasonUpdate')
-      end,
-    },
-    {'williamboman/mason-lspconfig.nvim'}, -- Optional
+        { run = ':TSUpdate'
+        })
+    use('theprimeagen/harpoon')
+    use('mbbill/undotree')
+    use('tpope/vim-fugitive')
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        requires = {
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' }, -- Required
+            {                            -- Optional
+                'williamboman/mason.nvim',
+                run = function()
+                    pcall(vim.cmd, 'MasonUpdate')
+                end,
+            },
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
-    -- Autocompletion
-    {'hrsh7th/nvim-cmp'},     -- Required
-    {'hrsh7th/cmp-nvim-lsp'}, -- Required
-    {'L3MON4D3/LuaSnip'},     -- Required
-  },
-  use {'mfussenegger/nvim-dap'},
-}
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },     -- Required
+            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
+        },
+        use { 'mfussenegger/nvim-dap' },
+        use { 'sudormrfbin/cheatsheet.nvim',
+
+            requires = {
+                { 'nvim-telescope/telescope.nvim' },
+                { 'nvim-lua/popup.nvim' },
+                { 'nvim-lua/plenary.nvim' },
+            }
+        },
+        use { 'folke/todo-comments.nvim',
+            requires = {
+                { 'nvim-lua/plenary.nvim' },
+            },
+            opts = {
+                -- options left default atm
+            },
+        },
+        use({
+            "jackMort/ChatGPT.nvim",
+            config = function()
+                local home = vim.fn.expand("$HOME")
+                require("chatgpt").setup({
+                    api_key_cmd = home .. "/.config/nvim/chatgpt"
+                })
+            end,
+            requires = {
+                "MunifTanjim/nui.nvim",
+                "nvim-lua/plenary.nvim",
+                "nvim-telescope/telescope.nvim"
+            }
+        }),
+        use 'simrat69/rust-tools.nvim'
+    }
 end)

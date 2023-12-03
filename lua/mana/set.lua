@@ -14,7 +14,8 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = "C:\\Users\\pmalcolm\\AppData\\Local\\undo-tree\\"
+
+vim.opt.undodir = vim.fn.expand("~/.undoTree")
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
