@@ -48,6 +48,7 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },     -- Required
         },
         use { 'mfussenegger/nvim-dap' },
+        use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} },
         use { 'sudormrfbin/cheatsheet.nvim',
 
             requires = {
@@ -78,6 +79,11 @@ return require('packer').startup(function(use)
                 "nvim-telescope/telescope.nvim"
             }
         }),
-        use 'simrat69/rust-tools.nvim'
+        use({
+            "nvim-tree/nvim-tree.lua",
+            requires = {
+                "nvim-tree/nvim-web-devicons" -- optional
+            },
+        }),
     }
 end)
