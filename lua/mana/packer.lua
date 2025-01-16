@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim', branch = '0.1.x',
         -- or                            , branch = '0.1.x',
         requires = {
             { 'nvim-lua/plenary.nvim' },
@@ -47,43 +47,23 @@ return require('packer').startup(function(use)
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
             { 'L3MON4D3/LuaSnip' },     -- Required
         },
-        use { 'mfussenegger/nvim-dap' },
-        use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} },
-        use { 'sudormrfbin/cheatsheet.nvim',
+    }
+    use { 'mfussenegger/nvim-dap' }
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }
+    use { 'sudormrfbin/cheatsheet.nvim',
 
-            requires = {
-                { 'nvim-telescope/telescope.nvim' },
-                { 'nvim-lua/popup.nvim' },
-                { 'nvim-lua/plenary.nvim' },
-            }
+        requires = {
+            { 'nvim-telescope/telescope.nvim' },
+            { 'nvim-lua/popup.nvim' },
+            { 'nvim-lua/plenary.nvim' },
+        }
+    }
+    use { 'folke/todo-comments.nvim',
+        requires = {
+            { 'nvim-lua/plenary.nvim' },
         },
-        use { 'folke/todo-comments.nvim',
-            requires = {
-                { 'nvim-lua/plenary.nvim' },
-            },
-            opts = {
-                -- options left default atm
-            },
+        opts = {
+            -- options left default atm
         },
-        use({
-            "jackMort/ChatGPT.nvim",
-            config = function()
-                local home = vim.fn.expand("$HOME")
-                require("chatgpt").setup({
-                    api_key_cmd = home .. "/.config/nvim/chatgpt"
-                })
-            end,
-            requires = {
-                "MunifTanjim/nui.nvim",
-                "nvim-lua/plenary.nvim",
-                "nvim-telescope/telescope.nvim"
-            }
-        }),
-        use({
-            "nvim-tree/nvim-tree.lua",
-            requires = {
-                "nvim-tree/nvim-web-devicons" -- optional
-            },
-        }),
     }
 end)
