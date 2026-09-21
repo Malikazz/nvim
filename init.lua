@@ -12,6 +12,8 @@ require("plugins.colorschme")
 require("plugins.blink")
 require("plugins.undotree")
 require("plugins.todo")
+require("plugins.nvim-lint")
+
 require("lsp.typescript-tools")
 
 require("auto_commands.telescope")
