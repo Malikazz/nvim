@@ -17,7 +17,6 @@ require("plugins.nvim-lint")
 require("lsp.typescript-tools")
 
 require("auto_commands.telescope")
-require("auto_commands.nvim-lint")
 
 vim.lsp.enable("gopls")
 vim.lsp.enable("lua_ls")
