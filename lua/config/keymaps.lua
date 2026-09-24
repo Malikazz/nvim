@@ -88,3 +88,7 @@ map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
 map("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parrent directory" })
 
 map("n", "<leader><space>", "<cmd>Telescope<cr>", { desc = "Open telescope no options" })
+map("n", "nhl", "<cmd>noh<CR>", { desc = "Open telescope no options" })
+
+-- lsp
+map("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition"})

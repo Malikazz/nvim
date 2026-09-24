@@ -13,6 +13,8 @@ require("plugins.blink")
 require("plugins.undotree")
 require("plugins.todo")
 require("plugins.nvim-lint")
+require("plugins.whichkey")
+require("plugins.diffviewer")
 
 require("lsp.typescript-tools")
 
