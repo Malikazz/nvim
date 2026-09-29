@@ -54,7 +54,7 @@ map("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
 
 -- formatting
 map({ "n", "v" }, "<leader>cf", function()
-	LazyVim.format({ force = true })
+	vim.lsp.buf.format()
 end, { desc = "Format" })
 
 -- diagnostic
@@ -91,4 +91,4 @@ map("n", "<leader><space>", "<cmd>Telescope<cr>", { desc = "Open telescope no op
 map("n", "nhl", "<cmd>noh<CR>", { desc = "Open telescope no options" })
 
 -- lsp
-map("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition"})
+map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
