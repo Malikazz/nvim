@@ -19,7 +19,10 @@ require("plugins.diffviewer")
 require("lsp.typescript-tools")
 
 require("auto_commands.telescope")
+require("auto_commands.splash")
 
 vim.lsp.enable("gopls")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("typescript-tools")
+vim.lsp.enable('php_lsp')
+vim.lsp.enable('pylsp')
