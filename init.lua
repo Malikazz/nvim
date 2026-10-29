@@ -1,4 +1,4 @@
-## Pauls custom nvim
+-- Pauls nvim
 require("config.options")
 require("config.keymaps")
 
@@ -26,3 +26,4 @@ vim.lsp.enable("lua_ls")
 vim.lsp.enable("typescript-tools")
 vim.lsp.enable('php_lsp')
 vim.lsp.enable('pylsp')
+vim.lsp.enable("rust_analyzer")
